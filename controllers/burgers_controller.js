@@ -6,13 +6,32 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
   burger.all(function(data) {
     var hbsObject = {
-      cats: data
+      burgers: data
     };
     console.log(hbsObject);
     // res.render("index", hbsObject);
     res.json(hbsObject)
   });
+ });
+
+router.post("/", function(req,res){
+  burger.create(function(data) {
+    var hbsObject = {
+      burgers: data
+    };
+    res.json(hbsObject)
+  });
 });
+
+router.post("/put", function(req,res){
+  burger.update(function(data) {
+    var hbsObject = {
+      burgers: data
+    };
+    res.json(hbsObject)
+  });
+});
+
 
 // Export routes for server.js to use.
 module.exports = router;

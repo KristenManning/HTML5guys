@@ -5,7 +5,7 @@ var orm  = {
 
 	all: function(table, cb){
 		var querStr = "SELECT * FROM " + table + "; "; 
-		connection.query(queryString, function(err, result) {
+		connection.query(querStr, function(err, result) {
       if (err) {
         throw err;
       }

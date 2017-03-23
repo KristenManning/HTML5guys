@@ -32,6 +32,11 @@ router.post("/put", function(req,res){
   });
 });
 
+router.get("/test", function(req,res){
+  res.render("index", {})
+});
+
+
 
 // Export routes for server.js to use.
 module.exports = router;

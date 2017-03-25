@@ -1,5 +1,6 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
+var app = require('../server');
 
 // var connection = mysql.createConnection({
 //   port: 8889,

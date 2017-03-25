@@ -1,1 +1,76 @@
-<h1> HELLO </h1>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3" >
+			<form action="/create" id="burger-input">
+				<h3>BURGER NAME: </h3> <input type="" name="burger_name"><br><br>
+				<h4>BUN: </h4>
+				<input value="White" name="bun" type="radio"> White <br>
+				<input value="WholeWheat" name="bun" type="radio"> Whole Wheat <br>
+				<input value="GlutenFree" name="bun"  type="radio"> Gluten Free <br>
+				<input value="None" name="bun" type="radio"> None <br>
+
+				<h4> PATTY: </h4>
+				<input value="Beef" name="patty" type="radio"> Beef <br>
+				<input value="Turkey"name="patty"  type="radio"> Turkey <br>
+				<input value="Veggie" name="patty" type="radio"> Veggie <br>
+				<input value="None" name="patty" type="radio"> None <br>
+
+				<h4> CHEESE: </h4>
+				<input value="American" name="cheese" type="radio"> American <br>
+				<input value="Cheddar" name="cheese" type="radio"> Cheddar <br>
+				<input value="Swiss" name="cheese" type="radio"> Swiss <br>
+				<input value="None" name="cheese" type="radio"> None <br>
+
+				<h4> TOPPINGS: </h4>
+				<input name="Tomato" type="checkbox"> Tomato <br>
+				<input name="Lettuce" type="checkbox"> Lettuce <br>
+				<input name="Onions" type="checkbox"> Onions <br>
+				<input name="Bacon" type="checkbox"> Bacon <br>
+				<input name="Mushrooms" type="checkbox"> Mushrooms <br>
+
+				<h4> CONDIMENTS: </h4>
+				<input name="Ketchup" type="checkbox"> Ketchup <br>
+				<input name="Mustard" type="checkbox"> Mustard <br>
+				<input name="Mayo" type="checkbox"> Mayo <br>
+				<input name="SecretSauce" type="checkbox"> Secret Sauce <br>
+				<h4>SPECIAL INSTRUCTIONS: </h4> <input type="" name="burger_name"><br><br>
+
+  				<input type="submit" class= "btn btn-lg btn-danger" value="BUILD">			
+
+
+
+
+			</form>
+		</div>
+
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-12" id="title">
+					<h3> Welcome to</h3>
+					<h1> HTML5 GUYS </h1>
+					<h4> Burgers &amp; Fries</h4>
+				</div>
+			</div>
+			<div class="row">
+				<br><br>
+				<div class="col-md-6" id="avail">
+
+				<h4> AVAILABLE BURGERS </h4>
+					{{#each burgers}}
+						{{burger_name}}
+				<form action="/devour?_method=PUT" method="POST">
+  				
+  					<input type="submit" class= "btn btn-success" value="DEVOUR">
+				</form>		
+
+
+						<br><br>
+					{{/each}}
+				</div>
+				<div class="col-md-6" id="eaten">
+					<h4>EATEN BURGERS</h4>
+				</div>
+			</div>
+		</div>
+
+	</div>

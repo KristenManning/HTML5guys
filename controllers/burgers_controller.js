@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var burger = require("../models/burger.js");
+var methodOverride = require("method-override");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -10,26 +11,25 @@ router.get("/", function(req, res) {
     };
     console.log(hbsObject);
     // res.render("index", hbsObject);
-    res.json(hbsObject)
+      res.render("index", hbsObject)
   });
  });
 
-router.post("/", function(req,res){
+router.post("/create/:columns/:values", function(req,res){
+  console.log("HELLO")
   burger.create(function(data) {
     var hbsObject = {
       burgers: data
     };
     res.json(hbsObject)
   });
+  res.redirect("/")
 });
 
-router.post("/put", function(req,res){
-  burger.update(function(data) {
-    var hbsObject = {
-      burgers: data
-    };
-    res.json(hbsObject)
-  });
+router.post("/devour", function(req,res){
+  burger.update( function(data) {
+    res.redirect("/")
+  }); 
 });
 
 router.get("/test", function(req,res){

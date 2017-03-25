@@ -3,8 +3,18 @@ var connection = require("../config/connection.js");
 
 var orm  = {
 
-	all: function(table, cb){
-		var querStr = "SELECT * FROM " + table + "; "; 
+	all_not_devoured: function(table, cb){
+		var querStr = "SELECT * FROM " + table + " WHERE devoured = false; "; 
+		connection.query(querStr, function(err, result) {
+	      if (err) {
+	        throw err;
+	      }
+	    cb(result);
+
+		});
+	}, 
+	all_devoured: function(table, cb){
+		var querStr = "SELECT * FROM " + table + " WHERE devoured = true;"; 
 		connection.query(querStr, function(err, result) {
 	      if (err) {
 	        throw err;

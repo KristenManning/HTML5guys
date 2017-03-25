@@ -5,18 +5,21 @@ var methodOverride = require("method-override");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burger.all(function(data) {
-    var hbsObject = {
-      burgers: data
-    };
-    console.log(hbsObject);
-    // res.render("index", hbsObject);
-      res.render("index", hbsObject)
-  });
- });
+  
+  burger.all_devoured(function(data) {
+    var hbsObject = {}
+    hbsObject["burgers"] = data;
+    
+      burger.all_not_devoured(function(data2) {
+        hbsObject["devoured"] = data2;
 
-router.post("/create/:columns/:values", function(req,res){
-  console.log("HELLO")
+        res.render("index", hbsObject);
+    });
+  });
+});
+      
+
+router.post("/create", function(req,res){
   burger.create(function(data) {
     var hbsObject = {
       burgers: data

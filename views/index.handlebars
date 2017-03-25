@@ -46,30 +46,36 @@
 		<div class="col-md-9">
 			<div class="row">
 				<div class="col-md-12" id="title">
-					<h3> Welcome to</h3>
 					<h1> HTML5 GUYS </h1>
-					<h4> Burgers &amp; Fries</h4>
+					<h2> Burgers &amp; Fries</h2>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" id="avail">
 				<br><br>
-				<div class="col-md-6" id="avail">
 
-				<h4> AVAILABLE BURGERS </h4>
+				<h3> AVAILABLE BURGERS </h3>
 					{{#each burgers}}
-						{{burger_name}}
-				<form action="/devour?_method=PUT" method="POST">
-  				
-  					<input type="submit" class= "btn btn-success" value="DEVOUR">
-				</form>		
-
-
-						<br><br>
+					<div class="col-md-2">
+						<h4>{{burger_name}}</h4>
+						<form action="/devour?_method=PUT" method="POST">
+		  				
+		  					<input type="submit" class= "btn btn-success" value="DEVOUR">
+						</form>		
+						<br>
+					</div>
 					{{/each}}
+
 				</div>
-				<div class="col-md-6" id="eaten">
-					<h4>EATEN BURGERS</h4>
+			<div class="row" id="eaten">
+				<h3>DEVOURED BURGERS</h3>
+
+				{{#each devoured}}
+				<div class="col-md-2">
+					<h4>{{burger_name}}</h4>	
+					<br>
 				</div>
+				{{/each}}
+			</div>
 			</div>
 		</div>
 

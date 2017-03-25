@@ -3,8 +3,13 @@ var orm = require("../config/orm.js");
 var mysql = require("mysql")
 
 var burger = {
-  all: function(cb) {
-    orm.all("burgers", function(res) {
+  all_devoured: function(cb) {
+    orm.all_devoured("burgers", function(res) {
+      cb(res);
+    });
+  },
+  all_not_devoured: function(cb) {
+    orm.all_not_devoured("burgers", function(res) {
       cb(res);
     });
   },
@@ -15,7 +20,6 @@ var burger = {
   },
   update: function(cb) {
   	orm.update("burgers", function(res){
-  		console.log("database update")
   		cb(res);
   	});
   }

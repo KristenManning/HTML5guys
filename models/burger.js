@@ -4,22 +4,22 @@ var mysql = require("mysql")
 
 var burger = {
   all_devoured: function(cb) {
-    orm.all_devoured("burgers", function(res) {
+    orm.all_devoured( function(res) {
       cb(res);
     });
   },
   all_not_devoured: function(cb) {
-    orm.all_not_devoured("burgers", function(res) {
+    orm.all_not_devoured( function(res) {
       cb(res);
     });
   },
-  create: function(cb){
-  	orm.create("burgers", function(res) {
+  create: function(values, cb){
+  	orm.create(values, function(res) {
   		cb(res);
   	});
   },
-  update: function(cb) {
-  	orm.update("burgers", function(res){
+  update: function(burger_id, cb) {
+  	orm.update(burger_id, function(res){
   		cb(res);
   	});
   }

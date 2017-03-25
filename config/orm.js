@@ -3,8 +3,8 @@ var connection = require("../config/connection.js");
 
 var orm  = {
 
-	all_not_devoured: function(table, cb){
-		var querStr = "SELECT * FROM " + table + " WHERE devoured = false; "; 
+	all_not_devoured: function(cb){
+		var querStr = "SELECT * FROM burgers WHERE devoured = false; "; 
 		connection.query(querStr, function(err, result) {
 	      if (err) {
 	        throw err;
@@ -13,8 +13,8 @@ var orm  = {
 
 		});
 	}, 
-	all_devoured: function(table, cb){
-		var querStr = "SELECT * FROM " + table + " WHERE devoured = true;"; 
+	all_devoured: function(cb){
+		var querStr = "SELECT * FROM  burgers  WHERE devoured = true;"; 
 		connection.query(querStr, function(err, result) {
 	      if (err) {
 	        throw err;
@@ -25,29 +25,20 @@ var orm  = {
 	}, 
 
 
-	create: function(table, columns, values, cb){
-		// Select Table
-		// var querStr = "INSERT INTO " + table + " ";
-		// var querStr = "INSERT INTO " + table + " ";
-		// // Select Columns
-		// querStr += columns + " ";
-		// // Input data 
-		// querStr += "VALUES " + values + ";";
-		// connection.query(querStr, function(err, result) {
-		// 	console.log(querStr)
-  //     if (err) {
-  //       throw err;
-  //     }
-	 //    cb("callback worked");
-	 // 	console.log(table + " = table")
-	 // 	console.log(columns + " = columns")
-	 // 	console.log(values + " = values")
-		// // });
+	create: function(values, cb){
+		var querStr = "INSERT INTO burgers (burger_name, bun, patty, cheese, lettuce, tomato, onions, bacon, mushrooms, ketchup, mustard, mayo, secret_sauce, special_instructions) VALUES " + values + ";";
+		connection.query(querStr, function(err, result) {
+			console.log(result)
+	      if (err) {
+	        throw err;
+	      }
+	      cb(result);
+		});
 	},
 
 	// Switch a burger's 'devoured' value from false to true 
 	update: function(burger_id, cb){
-		var querStr = "UPDATE burgers SET devoured = false WHERE id = 2;";
+		var querStr = "UPDATE burgers SET devoured = true WHERE id = " + burger_id + ";";
 		connection.query(querStr, function(err, result) {
 	      if (err) {
 	        throw err;

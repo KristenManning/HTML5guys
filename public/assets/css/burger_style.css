@@ -5,6 +5,19 @@ h1{color: white;
 	font-size: 100px;
 }
 
+
+h3{
+	color: black;
+}
+
+h4{
+	font-style: italic;
+}
+
+li{
+	font-size: 10px;
+}
+
 #title{
 	text-align: center;
 }
@@ -18,12 +31,18 @@ h1{color: white;
 	text-indent: 10px;
 }
 
-/*#avail{
-	border-right: solid;
-	border-color: black;
-	border-width: 5px;
-}*/
+#avail{
+	border-bottom: dotted;
+	border-color: white;
+	border-width: 10px;
+}
+
 
 .container{
 	width: 90%;
+}
+
+.burger-pod{
+	text-align: center;
+
 }
